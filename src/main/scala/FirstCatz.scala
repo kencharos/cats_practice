@@ -15,6 +15,7 @@ object FirstCatz extends App{
   trait Monoid[A] {
     def empty: A
     def combine(x: A, y: A): A
+    def |+|(x:A, y:A) = combine(x,y)
   }
 
   // モノイドの int 実装
@@ -30,6 +31,9 @@ object FirstCatz extends App{
 
   // fold の汎用化。Monoid 実装について動くようになる。
   def combineAll[A](list: List[A])(implicit A: Monoid[A]): A = list.foldRight(A.empty)(A.combine)
+  def |+|[A](x:A, y:A)(implicit A: Monoid[A]): A = A.combine(x,y)
+
+
 
   println(combineAll(List(1,2,3,4,4)))
   println(combineAll(List("2", "3")))
