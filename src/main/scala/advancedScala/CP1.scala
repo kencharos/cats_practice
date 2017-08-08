@@ -1,5 +1,7 @@
 package advancedScala
 
+import java.util.Date
+
 /**
   * Created by kentaro.maeda on 2017/08/08.
   */
@@ -31,6 +33,7 @@ object CP1 {
 
   def objectStyle():Unit = {
     import PrintableInstances._
+    // Instance スタイルだと、メソッドに型クラスのインスタンスを渡す
     Printable.print("2")
     Printable.print(34)
     Printable.print(Cat("Taka", 34, "blue"))
@@ -42,8 +45,32 @@ object CP1 {
     color: String
   )
 
+  // sytax style Execise3
+  object PrintableSyntax {
+    implicit class PrintOps[A](value:A) {
+       def format(implicit a: Printable[A]): String = {
+         a.format(value)
+       }
+
+      def print(implicit a: Printable[A]): Unit = {
+          println(format)
+      }
+    }
+  }
+
+
+  def syntaxStyle():Unit = {
+    import PrintableSyntax._
+    import PrintableInstances._
+    // Syntax 型だと、インスタンスメソッドが増えたように見える。
+    // Kotlinの拡張メソッドみたい。
+    val cat = Cat("C", 34, "red")
+    cat.print
+  }
+
   def main(args:Array[String]):Unit = {
     objectStyle()
+    syntaxStyle()
   }
 
 }
