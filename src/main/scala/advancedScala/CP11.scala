@@ -5,7 +5,7 @@ import java.util.Date
 /**
   * Created by kentaro.maeda on 2017/08/08.
   */
-object CP1 {
+object CP11 {
 
   trait Printable[A] {
     def format(a:A):String
