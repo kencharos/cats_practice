@@ -5,7 +5,7 @@ import java.util.Date
 /**
   * Created by kentaro.maeda on 2017/08/08.
   */
-object CP11 {
+object CP11_TypeClass_myself {
 
   trait Printable[A] {
     def format(a:A):String
@@ -29,6 +29,8 @@ object CP11 {
   object Printable {
     def format[A](a:A)(implicit evidence:Printable[A]):String = evidence.format(a)
     def print[A](a:A)(implicit evidence:Printable[A]):Unit = println(format(a))
+
+    def apply[A](implicit a: Printable[A]) = a
   }
 
   def objectStyle():Unit = {
@@ -37,6 +39,10 @@ object CP11 {
     Printable.print("2")
     Printable.print(34)
     Printable.print(Cat("Taka", 34, "blue"))
+
+    // apply経由にすることで、インスタンスを取得するパターンのほうが、catsでは使われるっぽい
+    Printable[String].format("222")
+
   }
 
   final case class Cat(

@@ -5,7 +5,7 @@ import java.util.Date
 /**
   * Created by kentaro.maeda on 2017/08/09.
   */
-object CP12 extends App{
+object CP12_basic_cats_and_Show extends App{
 
   // TypeClass は cats パッケージ
   import cats.Show
