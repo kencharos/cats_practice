@@ -76,7 +76,7 @@ object PrepareFree extends App{
           ()
         case Get(key) =>
           println(s"get($key)")
-          kvs.get(key).map(_.asInstanceOf[A])
+          kvs.get(key)
         case Delete(key) =>
           println(s"delete($key)")
           kvs.remove(key)
