@@ -7,17 +7,11 @@ import scala.concurrent.Future
 /**
   * Created by kentaro.maeda on 2017/08/07.
   */
-class EqTest extends App {
+object EqTest extends App {
 
-  case class Hoge(x:String)
 
-  implicit val hogeEq:Eq[Hoge] = new Eq[Hoge] {
-    override def eqv(x: Hoge, y: Hoge): Boolean = x.x == y.x
-  }
+  val a = if (true) "aaa" else 45
 
-  val h1 = Hoge("End")
-  val h2 = Hoge("Start")
-  println(h1 === h2)
-
+  println(a)
 
 }
