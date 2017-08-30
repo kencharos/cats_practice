@@ -4,7 +4,9 @@ import cats.free.Free
 
 
 /**
-  * Created by kentaro.maeda on 2017/08/18.
+  * Free モナド。
+  *
+  * IDEAだと一部のコードがエラーになる。
   */
 object PrepareFree extends App{
 

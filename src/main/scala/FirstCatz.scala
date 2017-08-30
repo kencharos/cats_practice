@@ -1,7 +1,7 @@
 /**
   * Created by kentaro.maeda on 2017/08/07.
   *
-  * Catz を始めるにあたり、型クラス in Scala の基本。
+  * Cats を始めるにあたり、型クラス in Scala の基本。
   */
 object FirstCatz extends App{
   // 普通の fold の定義。

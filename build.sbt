@@ -1,9 +1,8 @@
-name := "catz_start"
+name := "cats_practice"
 
 version := "1.0"
 
 scalaVersion := "2.12.2"
-//scalaVersion := "0.2.0-RC1"
 
 libraryDependencies := Seq(
     "org.typelevel" %% "cats-core" % "1.0.0-MF",

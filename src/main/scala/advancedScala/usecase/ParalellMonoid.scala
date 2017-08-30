@@ -41,7 +41,7 @@ object ParalellMonoid extends App{
     values
       .grouped(groupSize)
       .toVector // Vector[Iterator[A]]
-      .traverse(group => Future(group.toVector.foldMap(func))) // Future[Vector[B]]
+      .traverse(group => Future(group.toVector.foldMap(func))) // Future[Vector[B]] //IDEAだとエラーになる。
       .map(_.combineAll)  // Futuer[B]
   }
 
